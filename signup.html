@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-box">
+            <h2>Sign up to <br> access this application</h2>
+        </div>
+        <div class="right-box">
+            <form id="signupForm">
+                <label for="firstname">First name</label>
+                <input type="text" id="firstname" name="firstname" required>
+                
+                <label for="lastname">Last name</label>
+                <input type="text" id="lastname" name="lastname" required>
+                
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password <span class="required">*</span></label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="confirm_password">Re-type Password <span class="required">*</span></label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+
+                <label for="linkedin">Your LinkedIn profile</label>
+                <input type="url" id="linkedin" name="linkedin">
+
+                <button type="submit">Sign Up</button>
+
+                <p class="error" id="error-message"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript for password validation -->
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirm_password').value;
+            var errorMessage = document.getElementById('error-message');
+
+            if (password !== confirmPassword) {
+                event.preventDefault(); // Prevent form submission
+                errorMessage.textContent = 'Passwords do not match!';
+            } else {
+                errorMessage.textContent = ''; // Clear error if passwords match
+            }
+        });
+    </script>
+</body>
+</html>
